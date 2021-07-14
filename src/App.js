@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import ToDo from './components/ToDo';
+import Results from './components/Results';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [task, setTask] = useState("");
+  const [allTasks, setAllTasks] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToDo task={task} setTask={setTask} allTasks={allTasks} setAllTasks={setAllTasks} />
+      <Results allTasks={allTasks} setAllTasks={setAllTasks} task={task} />
     </div>
   );
 }
